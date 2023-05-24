@@ -3,13 +3,13 @@
 // 3rd Party Resources
 const express = require('express');
 const cors = require('cors');
-const logger = require('../api-server/src/middleware/logger');
+const logger = require('../src/middleware/logger');
 
 // Esoteric Resources
-const errorHandler = require('../auth-server/src/error-handlers/500.js');
-const notFound = require('../auth-server/src/error-handlers/404.js');
-const authRoutes = require('../auth-server/src/auth/routes.js');
-const v1Routes = require('../api-server/src/routes/v1.js');
+const errorHandler = require('../src/error-handlers/500.js');
+const notFound = require('../src/error-handlers/404.js');
+const authRoutes = require('../src/auth/routes.js');
+const v1Routes = require('../src/routes/v1.js');
 // Prepare the express app
 const app = express();
 
