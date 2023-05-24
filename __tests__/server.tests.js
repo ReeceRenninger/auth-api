@@ -3,9 +3,6 @@
 const { server } = require('../src/server');
 const { db } = require('../src/models/index');
 const supertest = require('supertest');
-const { describe } = require('yargs');
-const { test } = require('node:test');
-const { expect } = require('@jest/globals');
 
 const request = supertest(server);
 
@@ -21,11 +18,12 @@ afterAll(async () => {
 describe('Server testing', () => {
 
   test('Allow users to sign up', async () => {
-    let response = (await request.post('/signup')).setEncoding({
+    let response = await request.post('/signup').send({
       username: 'Admin',
       password: 'password',
       role: 'admin',
     });
+
     expect(response.status).toBe(201);
     expect(response.body.user.username).toEqual('Admin');
   });
