@@ -22,7 +22,13 @@ class DataCollection {
   create(record) {
     return this.model.create(record);
   }
-
+  //** trying to convert this to use async */
+  //** refer to lecture video to see Ryan */
+  // async update  (id, data){
+  //   let result = await this.model.findOne({ where: { id } });
+  //   let modifiedDAta = await result.update(data);
+  //   return modifiedDAta;
+  // }
   update(id, data) {
     return this.model.findOne({ where: { id } })
       .then(record => record.update(data));
