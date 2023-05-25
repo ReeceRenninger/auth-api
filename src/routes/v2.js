@@ -4,7 +4,6 @@ const express = require('express');
 const dataModules = require('../models');
 const acl = require('../auth/middleware/acl');
 const bearerAuth = require('../auth/middleware/bearer');
-const basicAuth = require('../auth/middleware/basic');
 const router = express.Router();
 
 router.param('model', (req, res, next) => {
@@ -17,9 +16,9 @@ router.param('model', (req, res, next) => {
   }
 });
 
-router.get('/:model',basicAuth, handleGetAll);
-router.get('/:model/:id',basicAuth,  handleGetOne);
-router.post('/:model',bearerAuth, acl('create'), handleCreate); // had has update by mistake
+router.get('/:model', bearerAuth, handleGetAll);
+router.get('/:model/:id', bearerAuth,  handleGetOne);
+router.post('/:model', bearerAuth, acl('create'), handleCreate); // had as update by mistake
 router.put('/:model/:id', bearerAuth, acl('update'), handleUpdate);
 router.patch('/:model/:id', bearerAuth, acl('update'),handleUpdate);
 router.delete('/:model/:id', bearerAuth, acl('delete'), handleDelete);

@@ -35,7 +35,7 @@ describe('testing v2 Routes', () => {
   });
 
   test('Gets all records', async () => {
-    let response = await request.get('/api/v1/food').set('Authorization', 'Basic YWRtaW46YWRtaW4=');
+    let response = await request.get('/api/v1/food').set('Authorization', 'Basic YWRtaW46YWRtaW4='); // practicing testing with basic auth for testing
 
     expect(response.status).toEqual(200);
     expect(response.body[0].name).toEqual('Beef Cake'); // have to target first index position for name
