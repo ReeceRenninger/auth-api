@@ -3,6 +3,7 @@
 const { server } = require('../src/server');
 const { db } = require('../src/models/index');
 const supertest = require('supertest');
+// const { test } = require('node:test');
 
 const request = supertest(server);
 
@@ -28,6 +29,12 @@ describe('Server testing', () => {
     expect(response.body.user.username).toEqual('Admin');
   });
 
+  test('Allow users to signin', async () => {
+    let response = await request.post('/signin').auth('Admin', 'password');
+
+    expect(response.status).toBe(200);
+    expect(response.body.user.username).toEqual('Admin');
+  });
 
 
 
