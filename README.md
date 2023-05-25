@@ -13,9 +13,11 @@ Modularize the provided code into a single server instance
 - [GitHub Actions ci/cd](https://github.com/ReeceRenninger/auth-api)
 - [Back-end deployment](https://auth-api-lab08.onrender.com)
 
-### Setup
+### Collaborators
 
-#### `.env` requirements (where applicable)
+- Ike and I worked together for a big portion of the lab on all parts.
+
+### Setup
 
     PORT=<your-port-choice>
     DATABASE_URL=postgres://localhost:5432/auth_api_lab08
