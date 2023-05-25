@@ -19,7 +19,7 @@ router.param('model', (req, res, next) => {
 
 router.get('/:model',basicAuth, handleGetAll);
 router.get('/:model/:id',basicAuth,  handleGetOne);
-router.post('/:model',bearerAuth, acl('update'), handleCreate);
+router.post('/:model',bearerAuth, acl('create'), handleCreate); // had has update by mistake
 router.put('/:model/:id', bearerAuth, acl('update'), handleUpdate);
 router.patch('/:model/:id', bearerAuth, acl('update'),handleUpdate);
 router.delete('/:model/:id', bearerAuth, acl('delete'), handleDelete);
